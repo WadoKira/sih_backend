@@ -3,7 +3,7 @@ const mongoose  =require('mongoose')
 const morgan    =require('morgan')
 const bodyParser=require('body-parser')
 
-const EmployeeRoute =require('./routes/Enterpreneur')
+const EmployeeRoute =require('./routes/enterpreneur')
 
 mongoose.connect('mongodb+srv://Kishore:Kishore7!@practice.mbhzktk.mongodb.net/Enterpreneur',{useNewUrlParser:true,useUnifiedTopology:true})
 const db =mongoose.connection
