@@ -1,8 +1,8 @@
 const express  =require('express')
 const router   =express.Router()
 
-const FranchiseController  = require('../controllers/FranchiseController')
-const Franchise = require('../models/Franchise')
+const FranchiseController  = require('../controllers/par_kings')
+const Franchise = require('../models/par_kings1')
 
 router.get('/',FranchiseController.index)
 router.post('/show',FranchiseController.show)

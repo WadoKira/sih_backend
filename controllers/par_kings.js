@@ -1,7 +1,8 @@
-const Franchise = require('../models/Franchise')
+const par_kings = require('../models/par_kings1')
+const par_kings1 = require('../models/par_kings1')
 
 const index =(req,res,next)=>{
-    Franchise.find()
+    par_kings1.find()
     .then(response=>{
         res.json({
             response
@@ -16,8 +17,8 @@ const index =(req,res,next)=>{
 }
 
  const show = (req,res,next)=>{
-     let franchiseID=req.body.franchiseID
-     Franchise.find().then(response =>{
+     let par_kingsID=req.body.par_kingsID
+     par_kings1.find().then(response =>{
          res.json({
              response
          })
@@ -32,13 +33,13 @@ const index =(req,res,next)=>{
 
 
 const store =(req,res,next)=>{
-    let franchise =new Franchise({
+    let par_kings1 =new par_kings({
         Franchise_Name:req.body.Franchise_Name,
         Description:req.body.Description,
         Requierements:req.body.Requierements,
         Investments:req.body.Investments,
     })
-    franchise.save()
+    par_kings1.save()
     .then(response=>{
         res.json({
             message:'Franchise Added Successfully'
@@ -52,7 +53,7 @@ const store =(req,res,next)=>{
 }
 
 const update =(req,res,next)=>{
-    let franchiseID=req.body.franchiseID
+    let par_kingsID=req.body.par_kingsID
 
     let updatedData={
         Franchise_Name:req.body.Franchise_Name,
@@ -60,7 +61,7 @@ const update =(req,res,next)=>{
         Requierements:req.body.Requierements,
         Investments:req.body.Investments,
     }
-    Franchise.findByIdAndUpdate(franchiseID,{$set:updatedData})
+    par_kings1.findByIdAndUpdate(par_kingsID,{$set:updatedData})
     .then(()=>{
         res.json({
             message:'Franchise Updated Successfully'
@@ -74,8 +75,8 @@ const update =(req,res,next)=>{
 }
 
 const destroy =(req,res,next)=>{
-    let franchiseID=req.body.franchiseID
-    Franchise.findByIdAndRemove(franchiseID)
+    let par_kingsID=req.body.par_kingsID
+    par_kings1.findByIdAndRemove(franchiseID)
     .then(() =>{
         res.json({
             message:'Franchise Deleted Successfully'

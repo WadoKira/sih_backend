@@ -1,7 +1,7 @@
 const mongoose  =require('mongoose')
 const Schema    =mongoose.Schema
 
-const franchiseSchema   = new Schema({
+const par_kings_schema   = new Schema({
     Franchise_Name:{
         type:String
     },
@@ -22,5 +22,5 @@ const franchiseSchema   = new Schema({
 },{timestamps:true})
 
 
-const Franchise = mongoose.model('Franchise',franchiseSchema)
-module.exports = Franchise
+const par_kings = mongoose.model('Franchise',par_kings_schema)
+module.exports = par_kings
