@@ -1,7 +1,7 @@
-const Franchise = require('../models/Franchise')
+const parivahan = require('../models/parivahan')
 
 const index =(req,res,next)=>{
-    Franchise.find()
+    parivahan.find()
     .then(response=>{
         res.json({
             response
@@ -16,8 +16,8 @@ const index =(req,res,next)=>{
 }
 
  const show = (req,res,next)=>{
-     let franchiseID=req.body.franchiseID
-     Franchise.find().then(response =>{
+     let parivahanID=req.body.parivahanID
+     parivahan.find().then(response =>{
          res.json({
              response
          })
@@ -32,16 +32,15 @@ const index =(req,res,next)=>{
 
 
 const store =(req,res,next)=>{
-    let franchise =new Franchise({
-        Franchise_Name:req.body.Franchise_Name,
-        Description:req.body.Description,
-        Requierements:req.body.Requierements,
-        Investments:req.body.Investments,
+    let parivahan1 =new parivahan({
+        user_name:req.body.user_name,
+        e_parivahan_id:req.body.e_parivahan_id,
+        vehicle_number:req.body.vehicle_number,
     })
-    franchise.save()
+    parivahan1.save()
     .then(response=>{
         res.json({
-            message:'Franchise Added Successfully'
+            message:'User Added Successfully'
         })
     })
     .catch(error=>{
@@ -52,18 +51,17 @@ const store =(req,res,next)=>{
 }
 
 const update =(req,res,next)=>{
-    let franchiseID=req.body.franchiseID
+    let parivahanID=req.body.parivahanID
 
     let updatedData={
-        Franchise_Name:req.body.Franchise_Name,
-        Description:req.body.Description,
-        Requierements:req.body.Requierements,
-        Investments:req.body.Investments,
+        user_name:req.body.user_name,
+        e_parivahan_id:req.body.e_parivahan_id,
+        vehicle_number:req.body.vehicle_number,
     }
-    Franchise.findByIdAndUpdate(franchiseID,{$set:updatedData})
+    parivahan.findByIdAndUpdate(parivahanID,{$set:updatedData})
     .then(()=>{
         res.json({
-            message:'Franchise Updated Successfully'
+            message:'User Updated Successfully'
         })
     })
     .catch(error=>{
@@ -74,11 +72,11 @@ const update =(req,res,next)=>{
 }
 
 const destroy =(req,res,next)=>{
-    let franchiseID=req.body.franchiseID
-    Franchise.findByIdAndRemove(franchiseID)
+    let parivahanID=req.body.parivahanID
+    parivahan.findByIdAndRemove(parivahanID)
     .then(() =>{
         res.json({
-            message:'Franchise Deleted Successfully'
+            message:'User Deleted Successfully'
         })
     })
     .catch(error=>{
